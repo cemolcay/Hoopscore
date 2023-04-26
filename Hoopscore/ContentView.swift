@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    let session: WatchSessionManager
+    
+    init() {
+        session = WatchSessionManager()
+    }
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            ProjectsView()
+            Text("Select a project")
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice("iPhone 13 mini")
     }
 }

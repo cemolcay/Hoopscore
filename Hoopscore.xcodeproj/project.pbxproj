@@ -7,11 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C13FB2A829F9552600344B79 /* Hoopscore.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C14DD0BA29F92E190044BD66 /* Hoopscore.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C14DD0A929F92DD30044BD66 /* HoopscoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0A829F92DD30044BD66 /* HoopscoreApp.swift */; };
 		C14DD0AB29F92DD30044BD66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0AA29F92DD30044BD66 /* ContentView.swift */; };
 		C14DD0AD29F92DD40044BD66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C14DD0AC29F92DD40044BD66 /* Assets.xcassets */; };
 		C14DD0B029F92DD40044BD66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C14DD0AF29F92DD40044BD66 /* Preview Assets.xcassets */; };
+		C14DD0BD29F92E190044BD66 /* Hoopscore_WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0BC29F92E190044BD66 /* Hoopscore_WatchApp.swift */; };
+		C14DD0BF29F92E190044BD66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0BE29F92E190044BD66 /* ContentView.swift */; };
+		C14DD0C129F92E1B0044BD66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C14DD0C029F92E1B0044BD66 /* Assets.xcassets */; };
+		C14DD0C429F92E1B0044BD66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C14DD0C329F92E1B0044BD66 /* Preview Assets.xcassets */; };
+		C14DD0CA29F92F8D0044BD66 /* HPData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0C929F92F8D0044BD66 /* HPData.swift */; };
+		C14DD0CB29F92F8D0044BD66 /* HPData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0C929F92F8D0044BD66 /* HPData.swift */; };
+		C14DD0CE29F935670044BD66 /* Disk in Frameworks */ = {isa = PBXBuildFile; productRef = C14DD0CD29F935670044BD66 /* Disk */; };
+		C14DD0D029F9357F0044BD66 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0CF29F9357F0044BD66 /* ProjectManager.swift */; };
+		C14DD0D229F936CA0044BD66 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0D129F936CA0044BD66 /* ProjectsView.swift */; };
+		C14DD0D429F937960044BD66 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0D329F937960044BD66 /* SessionView.swift */; };
+		C14DD0D629F939CB0044BD66 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0D529F939CB0044BD66 /* WatchSessionManager.swift */; };
+		C14DD0D829F93A540044BD66 /* WatchMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0D729F93A540044BD66 /* WatchMessage.swift */; };
+		C14DD0D929F93A540044BD66 /* WatchMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0D729F93A540044BD66 /* WatchMessage.swift */; };
+		C14DD0DB29F9403A0044BD66 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0DA29F9403A0044BD66 /* SessionManager.swift */; };
+		C14DD0DD29F9422E0044BD66 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0DC29F9422E0044BD66 /* SessionView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C13FB2AB29F9552600344B79 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C13FB2A829F9552600344B79 /* Hoopscore.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C14DD0A529F92DD30044BD66 /* Hoopscore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoopscore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,10 +49,31 @@
 		C14DD0AA29F92DD30044BD66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C14DD0AC29F92DD40044BD66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C14DD0AF29F92DD40044BD66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C14DD0BA29F92E190044BD66 /* Hoopscore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoopscore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C14DD0BC29F92E190044BD66 /* Hoopscore_WatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hoopscore_WatchApp.swift; sourceTree = "<group>"; };
+		C14DD0BE29F92E190044BD66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C14DD0C029F92E1B0044BD66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C14DD0C329F92E1B0044BD66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C14DD0C929F92F8D0044BD66 /* HPData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPData.swift; sourceTree = "<group>"; };
+		C14DD0CF29F9357F0044BD66 /* ProjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
+		C14DD0D129F936CA0044BD66 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
+		C14DD0D329F937960044BD66 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		C14DD0D529F939CB0044BD66 /* WatchSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
+		C14DD0D729F93A540044BD66 /* WatchMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMessage.swift; sourceTree = "<group>"; };
+		C14DD0DA29F9403A0044BD66 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		C14DD0DC29F9422E0044BD66 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C14DD0A229F92DD30044BD66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C14DD0CE29F935670044BD66 /* Disk in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C14DD0B729F92E190044BD66 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -32,11 +83,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C13FB2A729F9552600344B79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C14DD09C29F92DD30044BD66 = {
 			isa = PBXGroup;
 			children = (
 				C14DD0A729F92DD30044BD66 /* Hoopscore */,
+				C14DD0BB29F92E190044BD66 /* Hoopscore Watch Watch App */,
 				C14DD0A629F92DD30044BD66 /* Products */,
+				C13FB2A729F9552600344B79 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -44,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				C14DD0A529F92DD30044BD66 /* Hoopscore.app */,
+				C14DD0BA29F92E190044BD66 /* Hoopscore.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,8 +114,11 @@
 			children = (
 				C14DD0A829F92DD30044BD66 /* HoopscoreApp.swift */,
 				C14DD0AA29F92DD30044BD66 /* ContentView.swift */,
-				C14DD0AC29F92DD40044BD66 /* Assets.xcassets */,
+				C14DD0D129F936CA0044BD66 /* ProjectsView.swift */,
+				C14DD0D329F937960044BD66 /* SessionView.swift */,
+				C14DD0C829F92F7D0044BD66 /* Data */,
 				C14DD0AE29F92DD40044BD66 /* Preview Content */,
+				C14DD0AC29F92DD40044BD66 /* Assets.xcassets */,
 			);
 			path = Hoopscore;
 			sourceTree = "<group>";
@@ -67,6 +131,38 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C14DD0BB29F92E190044BD66 /* Hoopscore Watch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				C14DD0BC29F92E190044BD66 /* Hoopscore_WatchApp.swift */,
+				C14DD0BE29F92E190044BD66 /* ContentView.swift */,
+				C14DD0DC29F9422E0044BD66 /* SessionView.swift */,
+				C14DD0DA29F9403A0044BD66 /* SessionManager.swift */,
+				C14DD0C029F92E1B0044BD66 /* Assets.xcassets */,
+				C14DD0C229F92E1B0044BD66 /* Preview Content */,
+			);
+			path = "Hoopscore Watch Watch App";
+			sourceTree = "<group>";
+		};
+		C14DD0C229F92E1B0044BD66 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C14DD0C329F92E1B0044BD66 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C14DD0C829F92F7D0044BD66 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C14DD0C929F92F8D0044BD66 /* HPData.swift */,
+				C14DD0CF29F9357F0044BD66 /* ProjectManager.swift */,
+				C14DD0D529F939CB0044BD66 /* WatchSessionManager.swift */,
+				C14DD0D729F93A540044BD66 /* WatchMessage.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,14 +173,35 @@
 				C14DD0A129F92DD30044BD66 /* Sources */,
 				C14DD0A229F92DD30044BD66 /* Frameworks */,
 				C14DD0A329F92DD30044BD66 /* Resources */,
+				C13FB2AB29F9552600344B79 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Hoopscore;
+			packageProductDependencies = (
+				C14DD0CD29F935670044BD66 /* Disk */,
+			);
 			productName = Hoopscore;
 			productReference = C14DD0A529F92DD30044BD66 /* Hoopscore.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C14DD0B929F92E190044BD66 /* Hoopscore Watch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C14DD0C529F92E1B0044BD66 /* Build configuration list for PBXNativeTarget "Hoopscore Watch Watch App" */;
+			buildPhases = (
+				C14DD0B629F92E190044BD66 /* Sources */,
+				C14DD0B729F92E190044BD66 /* Frameworks */,
+				C14DD0B829F92E190044BD66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hoopscore Watch Watch App";
+			productName = "Hoopscore Watch Watch App";
+			productReference = C14DD0BA29F92E190044BD66 /* Hoopscore.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,6 +217,9 @@
 					C14DD0A429F92DD30044BD66 = {
 						CreatedOnToolsVersion = 14.2;
 					};
+					C14DD0B929F92E190044BD66 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 				};
 			};
 			buildConfigurationList = C14DD0A029F92DD30044BD66 /* Build configuration list for PBXProject "Hoopscore" */;
@@ -111,11 +231,15 @@
 				Base,
 			);
 			mainGroup = C14DD09C29F92DD30044BD66;
+			packageReferences = (
+				C14DD0CC29F935670044BD66 /* XCRemoteSwiftPackageReference "Disk" */,
+			);
 			productRefGroup = C14DD0A629F92DD30044BD66 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				C14DD0A429F92DD30044BD66 /* Hoopscore */,
+				C14DD0B929F92E190044BD66 /* Hoopscore Watch Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +254,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C14DD0B829F92E190044BD66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C14DD0C429F92E1B0044BD66 /* Preview Assets.xcassets in Resources */,
+				C14DD0C129F92E1B0044BD66 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -137,8 +270,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C14DD0D429F937960044BD66 /* SessionView.swift in Sources */,
+				C14DD0D829F93A540044BD66 /* WatchMessage.swift in Sources */,
+				C14DD0D229F936CA0044BD66 /* ProjectsView.swift in Sources */,
 				C14DD0AB29F92DD30044BD66 /* ContentView.swift in Sources */,
+				C14DD0D029F9357F0044BD66 /* ProjectManager.swift in Sources */,
 				C14DD0A929F92DD30044BD66 /* HoopscoreApp.swift in Sources */,
+				C14DD0CA29F92F8D0044BD66 /* HPData.swift in Sources */,
+				C14DD0D629F939CB0044BD66 /* WatchSessionManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C14DD0B629F92E190044BD66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C14DD0BF29F92E190044BD66 /* ContentView.swift in Sources */,
+				C14DD0DD29F9422E0044BD66 /* SessionView.swift in Sources */,
+				C14DD0D929F93A540044BD66 /* WatchMessage.swift in Sources */,
+				C14DD0BD29F92E190044BD66 /* Hoopscore_WatchApp.swift in Sources */,
+				C14DD0DB29F9403A0044BD66 /* SessionManager.swift in Sources */,
+				C14DD0CB29F92F8D0044BD66 /* HPData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +427,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -282,9 +435,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cemolcay.Hoopscore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -304,6 +460,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,9 +468,70 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cemolcay.Hoopscore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C14DD0C629F92E1B0044BD66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hoopscore Watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 77Y3N48SNF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
+				PRODUCT_NAME = Hoopscore;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Debug;
+		};
+		C14DD0C729F92E1B0044BD66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hoopscore Watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 77Y3N48SNF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
+				PRODUCT_NAME = Hoopscore;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
 		};
@@ -338,7 +556,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C14DD0C529F92E1B0044BD66 /* Build configuration list for PBXNativeTarget "Hoopscore Watch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C14DD0C629F92E1B0044BD66 /* Debug */,
+				C14DD0C729F92E1B0044BD66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C14DD0CC29F935670044BD66 /* XCRemoteSwiftPackageReference "Disk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/saoudrizwan/Disk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C14DD0CD29F935670044BD66 /* Disk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C14DD0CC29F935670044BD66 /* XCRemoteSwiftPackageReference "Disk" */;
+			productName = Disk;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C14DD09D29F92DD30044BD66 /* Project object */;
 }
