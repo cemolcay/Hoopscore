@@ -8,33 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
-    let manager = SessionManager()
     @State var projects: [HPData] = []
     @State var isLoading: Bool = true
     
     var body: some View {
         ZStack {
             List {
+                // New Session
+                NavigationLink(
+                    "+ New Session",
+                    destination: { SessionRequestView(projectId: nil) })
+                // Sessions
                 ForEach($projects, id: \.id) { project in
                     NavigationLink(
                         project.wrappedValue.description,
-                        destination: { SessionView(data: project.wrappedValue, manager: manager) })
+                        destination: { SessionRequestView(projectId: project.id) })
                 }
             }.onAppear(perform: {
                 reload()
-            })
-            if $isLoading.wrappedValue {
-                VStack() {
-                    ProgressView()
-                    Button(action: {
-                        reload()
-                    }, label: {
-                        Text("Reload")
-                    })
+            }).overlay(content: {
+                if $isLoading.wrappedValue {
+                    VStack() {
+                        ProgressView()
+                        Button(action: {
+                            reload()
+                        }, label: {
+                            Text("Reload")
+                        })
+                    }.background(content: { Color(.black) })
                 }
-            }
-        }
-        .navigationTitle({
+            })
+        }.navigationTitle({
             VStack(alignment: .leading) {
                 Text("Hoopscore")
             }
@@ -42,7 +46,7 @@ struct ContentView: View {
     }
     
     func reload() {
-        manager.requestProjects(compilation: { projects in
+        SessionManager.shared.requestProjects(compilation: { projects in
             self.projects = projects
             self.isLoading = false
         })

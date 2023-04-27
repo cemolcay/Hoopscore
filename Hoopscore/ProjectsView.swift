@@ -51,7 +51,6 @@ struct ProjectsView: View {
             }
             .listStyle(.plain)
             .navigationTitle("Sessions")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button(action: {
                     let project = ProjectManager.shared.newProject()

@@ -9,6 +9,7 @@ import UIKit
 import WatchConnectivity
 
 class SessionManager: NSObject, WCSessionDelegate {
+    static let shared = SessionManager()
     let session: WCSession
     
     override init() {
@@ -37,11 +38,11 @@ class SessionManager: NSObject, WCSessionDelegate {
         }
     }
     
-    func selectProject(project: HPData, compilation: ((HPData) -> Void)?) {
+    func requestProject(projectId: UUID, compilation: ((HPData) -> Void)?) {
         do {
             let message: [String: Any] = [
                 "message": WatchMessage.selectProject.rawValue,
-                "projectID": project.id
+                "projectID": projectId
             ]
             let data = try JSONSerialization.data(withJSONObject: message)
             session.sendMessageData(data, replyHandler: { projectData in
