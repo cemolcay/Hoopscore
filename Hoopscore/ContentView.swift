@@ -7,13 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    let session: WatchSessionManager
-    
-    init() {
-        session = WatchSessionManager()
-    }
-    
+struct ContentView: View {  
     var body: some View {
         NavigationView {
             ProjectsView()

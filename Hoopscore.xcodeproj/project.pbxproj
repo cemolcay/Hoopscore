@@ -18,6 +18,7 @@
 		C14DD0D429F937960044BD66 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0D329F937960044BD66 /* SessionView.swift */; };
 		C14DD0D629F939CB0044BD66 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0D529F939CB0044BD66 /* WatchSessionManager.swift */; };
 		C14DD0D829F93A540044BD66 /* WatchMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0D729F93A540044BD66 /* WatchMessage.swift */; };
+		C173A92A29FAB563007FF452 /* Hoopscore Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C1755B9429FA9C0300893557 /* Hoopscore Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C1755B9729FA9C0300893557 /* HoopscoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1755B9629FA9C0300893557 /* HoopscoreApp.swift */; };
 		C1755B9929FA9C0300893557 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1755B9829FA9C0300893557 /* ContentView.swift */; };
 		C1755B9B29FA9C0300893557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1755B9A29FA9C0300893557 /* Assets.xcassets */; };
@@ -27,6 +28,30 @@
 		C1755BA829FA9C5D00893557 /* WatchMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0D729F93A540044BD66 /* WatchMessage.swift */; };
 		C1755BA929FA9C5D00893557 /* HPData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0C929F92F8D0044BD66 /* HPData.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C173A92B29FAB563007FF452 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C14DD09D29F92DD30044BD66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1755B9329FA9C0300893557;
+			remoteInfo = "Hoopscore Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C173A92D29FAB563007FF452 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C173A92A29FAB563007FF452 /* Hoopscore Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C14DD0A529F92DD30044BD66 /* Hoopscore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoopscore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,10 +193,12 @@
 				C14DD0A129F92DD30044BD66 /* Sources */,
 				C14DD0A229F92DD30044BD66 /* Frameworks */,
 				C14DD0A329F92DD30044BD66 /* Resources */,
+				C173A92D29FAB563007FF452 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C173A92C29FAB563007FF452 /* PBXTargetDependency */,
 			);
 			name = Hoopscore;
 			packageProductDependencies = (
@@ -290,6 +317,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C173A92C29FAB563007FF452 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1755B9329FA9C0300893557 /* Hoopscore Watch App */;
+			targetProxy = C173A92B29FAB563007FF452 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		C14DD0B129F92DD40044BD66 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -341,13 +376,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -395,13 +432,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -416,6 +455,7 @@
 				DEVELOPMENT_TEAM = 77Y3N48SNF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Hoopscore;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +489,7 @@
 				DEVELOPMENT_TEAM = 77Y3N48SNF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Hoopscore;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -484,13 +525,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Hoopscore;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cemolcay.Hoopscore;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cemolcay.Hoopscore.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -514,13 +555,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Hoopscore;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cemolcay.Hoopscore;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cemolcay.Hoopscore.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

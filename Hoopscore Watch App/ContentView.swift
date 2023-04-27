@@ -39,9 +39,7 @@ struct ContentView: View {
                 }
             })
         }.navigationTitle({
-            VStack(alignment: .leading) {
-                Text("Hoopscore")
-            }
+            Text("Hoopscore")
         })
     }
     

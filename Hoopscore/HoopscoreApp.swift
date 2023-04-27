@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct HoopscoreApp: App {
+    
+    init() {
+        _ = WatchSessionManager.shared
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

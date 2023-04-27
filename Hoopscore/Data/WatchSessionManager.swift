@@ -9,6 +9,7 @@ import Foundation
 import WatchConnectivity
 
 class WatchSessionManager: NSObject, WCSessionDelegate {
+    static let shared = WatchSessionManager()
     let session: WCSession
     var data: HPData
     
