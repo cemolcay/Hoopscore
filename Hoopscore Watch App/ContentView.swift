@@ -25,6 +25,7 @@ struct ContentView: View {
                         destination: { SessionRequestView(projectId: project.id) })
                 }
             }.onAppear(perform: {
+                _ = SessionManager.shared
                 reload()
             }).overlay(content: {
                 if $isLoading.wrappedValue {

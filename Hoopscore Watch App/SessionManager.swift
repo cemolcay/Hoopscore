@@ -22,73 +22,51 @@ class SessionManager: NSObject, WCSessionDelegate {
     }
     
     func requestProjects(compilation: (([HPData]) -> Void)?) {
-        do {
-            let message = ["message": WatchMessage.requestProjects.rawValue]
-            let data = try JSONSerialization.data(withJSONObject: message)
-            session.sendMessageData(data, replyHandler: { reply in
-                do {
-                    let projects = try JSONDecoder().decode([HPData].self, from: reply)
-                    compilation?(projects)
-                } catch {
-                    compilation?([])
-                }
-            })
-        } catch {
-            compilation?([])
-        }
+        let message = ["message": WatchMessage.requestProjects.rawValue]
+        session.sendMessage(message, replyHandler: { reply in
+            guard let data = reply["projects"] as? Data,
+                  let projects = try? JSONDecoder().decode([HPData].self, from: data)
+            else { return }
+            compilation?(projects)
+        })
     }
     
     func requestProject(projectId: UUID, compilation: ((HPData) -> Void)?) {
-        do {
-            let message: [String: Any] = [
-                "message": WatchMessage.selectProject.rawValue,
-                "projectID": projectId
-            ]
-            let data = try JSONSerialization.data(withJSONObject: message)
-            session.sendMessageData(data, replyHandler: { projectData in
-                do {
-                    let project = try JSONDecoder().decode(HPData.self, from: projectData)
-                    compilation?(project)
-                } catch {
-                    return
-                }
-            })
-        } catch {
-            return
-        }
+        let message: [String: Any] = [
+            "message": WatchMessage.selectProject.rawValue,
+            "projectID": projectId
+        ]
+        session.sendMessage(message, replyHandler: { reply in
+            guard let data = reply["project"] as? Data,
+                  let project = try? JSONDecoder().decode(HPData.self, from: data)
+            else { return }
+            compilation?(project)
+        })
     }
     
     func newProject(compilation: ((HPData) -> Void)?) {
-        do {
-            let message: [String: Any] = ["message": WatchMessage.newProject.rawValue]
-            let data = try JSONSerialization.data(withJSONObject: message)
-            session.sendMessageData(data, replyHandler: { projectData in
-                do {
-                    let project = try JSONDecoder().decode(HPData.self, from: projectData)
-                    compilation?(project)
-                } catch {
-                    return
-                }
-            })
-        } catch {
-            return
-        }
+        let message: [String: Any] = ["message": WatchMessage.newProject.rawValue]
+        session.sendMessage(message, replyHandler: { reply in
+            guard let data = reply["project"] as? Data,
+                  let project = try? JSONDecoder().decode(HPData.self, from: data)
+            else { return }
+            compilation?(project)
+        })
     }
     
     func saveData(type: String, result: String) {
-        do {
-            let message: [String: Any] = [
-                "message": WatchMessage.saveData.rawValue,
-                "data": [
-                    "type": type,
-                    "result": result
-                ]
+        let message: [String: Any] = [
+            "message": WatchMessage.saveData.rawValue,
+            "data": [
+                "type": type,
+                "result": result
             ]
-            let data = try JSONSerialization.data(withJSONObject: message)
-            session.sendMessageData(data, replyHandler: nil)
-        } catch {
-            return
-        }
+        ]
+        session.sendMessage(message, replyHandler: nil)
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        print(message)
     }
 
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
