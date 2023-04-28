@@ -20,12 +20,12 @@ class HPWatchData: Identifiable, Codable, ObservableObject {
     init(data: HPData) {
         self.id = data.id
         self.title = data.description
-        self.layupScores = data.layupScores.count
-        self.layupMisses = data.layupMisses.count
-        self.twoPointScores = data.twoPointScores.count
-        self.twoPointMisses = data.twoPointMisses.count
-        self.threePointScores = data.threePointScores.count
-        self.threePointMisses = data.threePointMisses.count
+        self.layupScores = data.shoots.filter({ $0.type == .layup && $0.result == .score }).count
+        self.layupMisses = data.shoots.filter({ $0.type == .layup && $0.result == .miss }).count
+        self.twoPointScores = data.shoots.filter({ $0.type == .twoPoint && $0.result == .score }).count
+        self.twoPointMisses = data.shoots.filter({ $0.type == .twoPoint && $0.result == .miss }).count
+        self.threePointScores = data.shoots.filter({ $0.type == .threePoint && $0.result == .score }).count
+        self.threePointMisses = data.shoots.filter({ $0.type == .threePoint && $0.result == .miss }).count
     }
     
     // MARK: Codable
@@ -66,32 +66,61 @@ class HPWatchData: Identifiable, Codable, ObservableObject {
      }
 }
 
+enum HPShootType: Int, Codable, CustomStringConvertible {
+    case layup
+    case twoPoint
+    case threePoint
+    
+    var description: String {
+        switch self {
+        case .layup: return "Layup"
+        case .twoPoint: return "2P"
+        case .threePoint: return "3P"
+        }
+    }
+}
+
+enum HPShootResult: Int, Codable, CustomStringConvertible {
+    case score
+    case miss
+    
+    var description: String {
+        switch self {
+        case .score: return "Score"
+        case .miss: return "Miss"
+        }
+    }
+}
+
+struct HPShoot: Identifiable, Codable {
+    var id: String
+    var date: Date
+    var type: HPShootType
+    var result: HPShootResult
+    
+    init(
+        id: String = UUID().uuidString,
+        date: Date = Date(),
+        type: HPShootType,
+        result: HPShootResult) {
+        self.id = id
+        self.date = date
+        self.type = type
+        self.result = result
+    }
+}
+
 class HPData: Identifiable, Codable, CustomStringConvertible, ObservableObject {
     var id: String
     var date: Date
-    @Published var layupScores: [Date]
-    @Published var layupMisses: [Date]
-    @Published var twoPointScores: [Date]
-    @Published var twoPointMisses: [Date]
-    @Published var threePointScores: [Date]
-    @Published var threePointMisses: [Date]
+    @Published var shoots: [HPShoot]
     
     init(id: String = UUID().uuidString,
          date: Date = Date(),
-         layupScores: [Date] = [],
-         layupMisses: [Date] = [],
-         twoPointScores: [Date] = [],
-         twoPointMisses: [Date] = [],
-         threePointScores: [Date] = [],
-         threePointMisses: [Date] = []) {
+         shoots: [HPShoot] = []) {
         self.id = id
         self.date = date
-        self.layupScores = layupScores
-        self.layupMisses = layupMisses
-        self.twoPointScores = twoPointScores
-        self.twoPointMisses = twoPointMisses
-        self.threePointScores = threePointScores
-        self.threePointMisses = threePointMisses
+        self.shoots = shoots
     }
     
     var description: String {
@@ -105,35 +134,20 @@ class HPData: Identifiable, Codable, CustomStringConvertible, ObservableObject {
     enum CodingKeys: CodingKey {
         case id
         case date
-        case layupScores
-        case layupMisses
-        case twoPointScores
-        case twoPointMisses
-        case threePointScores
-        case threePointMisses
+        case shoots
     }
     
     required init(from decoder: Decoder) throws {
          let container = try decoder.container(keyedBy: CodingKeys.self)
          self.id = try container.decode(String.self, forKey: .id)
          self.date = try container.decode(Date.self, forKey: .date)
-         self.layupScores = try container.decode([Date].self, forKey: .layupScores)
-         self.layupMisses = try container.decode([Date].self, forKey: .layupMisses)
-         self.twoPointScores = try container.decode([Date].self, forKey: .twoPointScores)
-         self.twoPointMisses = try container.decode([Date].self, forKey: .twoPointMisses)
-         self.threePointScores = try container.decode([Date].self, forKey: .threePointScores)
-         self.threePointMisses = try container.decode([Date].self, forKey: .threePointMisses)
+         self.shoots = try container.decode([HPShoot].self, forKey: .shoots)
      }
   
      func encode(to encoder: Encoder) throws {
          var container = encoder.container(keyedBy: CodingKeys.self)
          try container.encode(self.id, forKey: .id)
          try container.encode(self.date, forKey: .date)
-         try container.encode(self.layupScores, forKey: .layupScores)
-         try container.encode(self.layupMisses, forKey: .layupMisses)
-         try container.encode(self.twoPointScores, forKey: .twoPointScores)
-         try container.encode(self.twoPointMisses, forKey: .twoPointMisses)
-         try container.encode(self.threePointScores, forKey: .threePointScores)
-         try container.encode(self.threePointMisses, forKey: .threePointMisses)
+         try container.encode(self.shoots, forKey: .shoots)
      }
 }

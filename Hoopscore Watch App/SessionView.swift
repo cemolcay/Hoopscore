@@ -22,13 +22,13 @@ struct SessionView: View {
                 Text("Layup").frame(width: textWidth)
                 Button(action: {
                     data.layupScores += 1
-                    SessionManager.shared.saveData(type: "layup", result: "score")
+                    SessionManager.shared.saveData(type: .layup, result: .score)
                 }, label: {
                     Text($data.layupScores.wrappedValue.description)
                 }).foregroundColor(.green)
                 Button(action: {
                     data.layupMisses += 1
-                    SessionManager.shared.saveData(type: "layup", result: "miss")
+                    SessionManager.shared.saveData(type: .layup, result: .miss)
                 }, label: {
                     Text($data.layupMisses.wrappedValue.description)
                 }).foregroundColor(.red)
@@ -37,13 +37,13 @@ struct SessionView: View {
                 Text("2P").frame(width: textWidth)
                 Button(action: {
                     data.twoPointScores += 1
-                    SessionManager.shared.saveData(type: "twoPoint", result: "score")
+                    SessionManager.shared.saveData(type: .twoPoint, result: .score)
                 }, label: {
                     Text($data.twoPointScores.wrappedValue.description)
                 }).foregroundColor(.green)
                 Button(action: {
                     data.twoPointMisses += 1
-                    SessionManager.shared.saveData(type: "twoPoint", result: "miss")
+                    SessionManager.shared.saveData(type: .twoPoint, result: .miss)
                 }, label: {
                     Text($data.twoPointMisses.wrappedValue.description)
                 }).foregroundColor(.red)
@@ -52,13 +52,13 @@ struct SessionView: View {
                 Text("3P").frame(width: textWidth)
                 Button(action: {
                     data.threePointScores += 1
-                    SessionManager.shared.saveData(type: "threePoint", result: "score")
+                    SessionManager.shared.saveData(type: .threePoint, result: .score)
                 }, label: {
                     Text($data.threePointScores.wrappedValue.description)
                 }).foregroundColor(.green)
                 Button(action: {
                     data.threePointMisses += 1
-                    SessionManager.shared.saveData(type: "threePoint", result: "miss")
+                    SessionManager.shared.saveData(type: .threePoint, result: .miss)
                 }, label: {
                     Text($data.threePointMisses.wrappedValue.description)
                 }).foregroundColor(.red)
@@ -118,10 +118,19 @@ struct SessionRequestView: View {
 struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
         let data = HPData(
-            layupScores: [Date(), Date()],
-            layupMisses: [Date(), Date(), Date()],
-            twoPointScores: [Date()],
-            twoPointMisses: [Date(), Date()])
+            shoots: [
+                .init(type: .layup, result: .score),
+                .init(type: .layup, result: .score),
+                .init(type: .layup, result: .miss),
+                .init(type: .layup, result: .miss),
+                .init(type: .layup, result: .miss),
+                .init(type: .twoPoint, result: .score),
+                .init(type: .twoPoint, result: .miss),
+                .init(type: .twoPoint, result: .miss),
+                .init(type: .threePoint, result: .score),
+                .init(type: .threePoint, result: .score),
+                .init(type: .threePoint, result: .miss),
+            ])
         NavigationView {
             SessionView(data: HPWatchData(data: data))
         }

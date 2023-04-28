@@ -54,12 +54,12 @@ class SessionManager: NSObject, WCSessionDelegate {
         })
     }
     
-    func saveData(type: String, result: String) {
+    func saveData(type: HPShootType, result: HPShootResult) {
         let message: [String: Any] = [
             "message": WatchMessage.saveData.rawValue,
             "data": [
-                "type": type,
-                "result": result
+                "type": type.rawValue,
+                "result": result.rawValue
             ]
         ]
         session.sendMessage(message, replyHandler: nil)

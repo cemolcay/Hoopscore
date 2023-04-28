@@ -52,32 +52,14 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
             
         case .saveData:
             guard let shootData = message["data"] as? [String: Any],
-                  let type = shootData["type"] as? String,
-                  let result = shootData["result"] as? String
+                  let typeData = shootData["type"] as? Int,
+                  let type = HPShootType(rawValue: typeData),
+                  let resultData = shootData["result"] as? Int,
+                  let result = HPShootResult(rawValue: resultData)
             else { return }
             
             DispatchQueue.main.async {
-                if type == "layup" {
-                    if result == "score" {
-                        self.data.layupScores.append(Date())
-                    } else if result == "miss" {
-                        self.data.layupMisses.append(Date())
-                    }
-                } else if type == "twoPoint" {
-                    if result == "score" {
-                        self.data.twoPointScores.append(Date())
-                    } else if result == "miss" {
-                        self.data.twoPointMisses.append(Date())
-                    }
-                } else if type == "threePoint" {
-                    if result == "score" {
-                        self.data.threePointScores.append(Date())
-                    } else if result == "miss" {
-                        self.data.threePointMisses.append(Date())
-                    }
-                } else {
-                    return
-                }
+                self.data.shoots.append(HPShoot(type: type, result: result))
                 ProjectManager.shared.update(project: self.data)
             }
         }
