@@ -7,12 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1076D5D29FBDDEC00473A02 /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D5329FBDDEC00473A02 /* Disk.swift */; };
+		C1076D5E29FBDDEC00473A02 /* Disk+InternalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D5429FBDDEC00473A02 /* Disk+InternalHelpers.swift */; };
+		C1076D5F29FBDDEC00473A02 /* Disk+[Data].swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D5529FBDDEC00473A02 /* Disk+[Data].swift */; };
+		C1076D6029FBDDEC00473A02 /* Disk+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D5629FBDDEC00473A02 /* Disk+Data.swift */; };
+		C1076D6129FBDDEC00473A02 /* Disk+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D5729FBDDEC00473A02 /* Disk+Errors.swift */; };
+		C1076D6229FBDDEC00473A02 /* Disk+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D5829FBDDEC00473A02 /* Disk+Helpers.swift */; };
+		C1076D6329FBDDEC00473A02 /* Disk+VolumeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D5929FBDDEC00473A02 /* Disk+VolumeInformation.swift */; };
+		C1076D6429FBDDEC00473A02 /* Disk+[UIImage].swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D5A29FBDDEC00473A02 /* Disk+[UIImage].swift */; };
+		C1076D6529FBDDEC00473A02 /* Disk+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D5B29FBDDEC00473A02 /* Disk+UIImage.swift */; };
+		C1076D6629FBDDEC00473A02 /* Disk+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D5C29FBDDEC00473A02 /* Disk+Codable.swift */; };
 		C14DD0A929F92DD30044BD66 /* HoopscoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0A829F92DD30044BD66 /* HoopscoreApp.swift */; };
 		C14DD0AB29F92DD30044BD66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0AA29F92DD30044BD66 /* ContentView.swift */; };
 		C14DD0AD29F92DD40044BD66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C14DD0AC29F92DD40044BD66 /* Assets.xcassets */; };
 		C14DD0B029F92DD40044BD66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C14DD0AF29F92DD40044BD66 /* Preview Assets.xcassets */; };
 		C14DD0CA29F92F8D0044BD66 /* HPData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0C929F92F8D0044BD66 /* HPData.swift */; };
-		C14DD0CE29F935670044BD66 /* Disk in Frameworks */ = {isa = PBXBuildFile; productRef = C14DD0CD29F935670044BD66 /* Disk */; };
 		C14DD0D029F9357F0044BD66 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0CF29F9357F0044BD66 /* ProjectManager.swift */; };
 		C14DD0D229F936CA0044BD66 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0D129F936CA0044BD66 /* ProjectsView.swift */; };
 		C14DD0D429F937960044BD66 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0D329F937960044BD66 /* SessionView.swift */; };
@@ -54,6 +63,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C1076D5329FBDDEC00473A02 /* Disk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disk.swift; sourceTree = "<group>"; };
+		C1076D5429FBDDEC00473A02 /* Disk+InternalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+InternalHelpers.swift"; sourceTree = "<group>"; };
+		C1076D5529FBDDEC00473A02 /* Disk+[Data].swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+[Data].swift"; sourceTree = "<group>"; };
+		C1076D5629FBDDEC00473A02 /* Disk+Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+Data.swift"; sourceTree = "<group>"; };
+		C1076D5729FBDDEC00473A02 /* Disk+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+Errors.swift"; sourceTree = "<group>"; };
+		C1076D5829FBDDEC00473A02 /* Disk+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+Helpers.swift"; sourceTree = "<group>"; };
+		C1076D5929FBDDEC00473A02 /* Disk+VolumeInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+VolumeInformation.swift"; sourceTree = "<group>"; };
+		C1076D5A29FBDDEC00473A02 /* Disk+[UIImage].swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+[UIImage].swift"; sourceTree = "<group>"; };
+		C1076D5B29FBDDEC00473A02 /* Disk+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+UIImage.swift"; sourceTree = "<group>"; };
+		C1076D5C29FBDDEC00473A02 /* Disk+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+Codable.swift"; sourceTree = "<group>"; };
 		C14DD0A529F92DD30044BD66 /* Hoopscore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoopscore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C14DD0A829F92DD30044BD66 /* HoopscoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoopscoreApp.swift; sourceTree = "<group>"; };
 		C14DD0AA29F92DD30044BD66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C14DD0CE29F935670044BD66 /* Disk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +112,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1076D5129FBDDEC00473A02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1076D5229FBDDEC00473A02 /* Disk */,
+			);
+			path = Frameworks;
+			sourceTree = SOURCE_ROOT;
+		};
+		C1076D5229FBDDEC00473A02 /* Disk */ = {
+			isa = PBXGroup;
+			children = (
+				C1076D5329FBDDEC00473A02 /* Disk.swift */,
+				C1076D5429FBDDEC00473A02 /* Disk+InternalHelpers.swift */,
+				C1076D5529FBDDEC00473A02 /* Disk+[Data].swift */,
+				C1076D5629FBDDEC00473A02 /* Disk+Data.swift */,
+				C1076D5729FBDDEC00473A02 /* Disk+Errors.swift */,
+				C1076D5829FBDDEC00473A02 /* Disk+Helpers.swift */,
+				C1076D5929FBDDEC00473A02 /* Disk+VolumeInformation.swift */,
+				C1076D5A29FBDDEC00473A02 /* Disk+[UIImage].swift */,
+				C1076D5B29FBDDEC00473A02 /* Disk+UIImage.swift */,
+				C1076D5C29FBDDEC00473A02 /* Disk+Codable.swift */,
+			);
+			path = Disk;
+			sourceTree = "<group>";
+		};
 		C13FB2A729F9552600344B79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +172,7 @@
 				C14DD0D129F936CA0044BD66 /* ProjectsView.swift */,
 				C14DD0D329F937960044BD66 /* SessionView.swift */,
 				C14DD0C829F92F7D0044BD66 /* Data */,
+				C1076D5129FBDDEC00473A02 /* Frameworks */,
 				C14DD0AE29F92DD40044BD66 /* Preview Content */,
 				C14DD0AC29F92DD40044BD66 /* Assets.xcassets */,
 			);
@@ -202,7 +246,6 @@
 			);
 			name = Hoopscore;
 			packageProductDependencies = (
-				C14DD0CD29F935670044BD66 /* Disk */,
 			);
 			productName = Hoopscore;
 			productReference = C14DD0A529F92DD30044BD66 /* Hoopscore.app */;
@@ -253,7 +296,6 @@
 			);
 			mainGroup = C14DD09C29F92DD30044BD66;
 			packageReferences = (
-				C14DD0CC29F935670044BD66 /* XCRemoteSwiftPackageReference "Disk" */,
 			);
 			productRefGroup = C14DD0A629F92DD30044BD66 /* Products */;
 			projectDirPath = "";
@@ -291,13 +333,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1076D6529FBDDEC00473A02 /* Disk+UIImage.swift in Sources */,
 				C14DD0D429F937960044BD66 /* SessionView.swift in Sources */,
+				C1076D5E29FBDDEC00473A02 /* Disk+InternalHelpers.swift in Sources */,
+				C1076D6229FBDDEC00473A02 /* Disk+Helpers.swift in Sources */,
+				C1076D6029FBDDEC00473A02 /* Disk+Data.swift in Sources */,
 				C14DD0D829F93A540044BD66 /* WatchMessage.swift in Sources */,
+				C1076D5F29FBDDEC00473A02 /* Disk+[Data].swift in Sources */,
 				C14DD0D229F936CA0044BD66 /* ProjectsView.swift in Sources */,
+				C1076D6329FBDDEC00473A02 /* Disk+VolumeInformation.swift in Sources */,
 				C14DD0AB29F92DD30044BD66 /* ContentView.swift in Sources */,
 				C14DD0D029F9357F0044BD66 /* ProjectManager.swift in Sources */,
 				C14DD0A929F92DD30044BD66 /* HoopscoreApp.swift in Sources */,
+				C1076D5D29FBDDEC00473A02 /* Disk.swift in Sources */,
+				C1076D6629FBDDEC00473A02 /* Disk+Codable.swift in Sources */,
 				C14DD0CA29F92F8D0044BD66 /* HPData.swift in Sources */,
+				C1076D6129FBDDEC00473A02 /* Disk+Errors.swift in Sources */,
+				C1076D6429FBDDEC00473A02 /* Disk+[UIImage].swift in Sources */,
 				C14DD0D629F939CB0044BD66 /* WatchSessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,25 +655,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		C14DD0CC29F935670044BD66 /* XCRemoteSwiftPackageReference "Disk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/saoudrizwan/Disk";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C14DD0CD29F935670044BD66 /* Disk */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C14DD0CC29F935670044BD66 /* XCRemoteSwiftPackageReference "Disk" */;
-			productName = Disk;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C14DD09D29F92DD30044BD66 /* Project object */;
 }

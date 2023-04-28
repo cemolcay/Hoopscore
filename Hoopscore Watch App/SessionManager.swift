@@ -31,7 +31,7 @@ class SessionManager: NSObject, WCSessionDelegate {
         })
     }
     
-    func requestProject(projectId: UUID, compilation: ((HPData) -> Void)?) {
+    func requestProject(projectId: String, compilation: ((HPData) -> Void)?) {
         let message: [String: Any] = [
             "message": WatchMessage.selectProject.rawValue,
             "projectID": projectId
@@ -63,10 +63,6 @@ class SessionManager: NSObject, WCSessionDelegate {
             ]
         ]
         session.sendMessage(message, replyHandler: nil)
-    }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        print(message)
     }
 
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {

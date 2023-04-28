@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct Hoopscore_Watch_App: App {
+    let manager = SessionManager.shared
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {

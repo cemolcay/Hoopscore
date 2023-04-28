@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectsView: View {
-    @State var selectedProjectId: UUID?
+    @State var selectedProjectId: String?
     @ObservedObject var projects = ProjectManager.shared
     
     var body: some View {

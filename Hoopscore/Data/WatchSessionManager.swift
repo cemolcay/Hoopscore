@@ -31,56 +31,55 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
         switch msg {
         case .requestProjects:
             let projects = ProjectManager.shared.projects
-            guard let data = try? JSONEncoder().encode(projects.map({ $0.watchFriendlyCopy() }))
-            else { return }
-            session.sendMessage(["projects": data], replyHandler: nil)
+            guard let data = try? JSONEncoder().encode(projects.map({ $0.watchFriendlyCopy() })) else { return }
             reply?(["projects": data])
             
         case .selectProject:
-            guard let projectID = message["projectID"] as? UUID,
+            guard let projectID = message["projectID"] as? String,
                   let project = ProjectManager.shared.projects.first(where: { $0.id == projectID }),
                   let data = try? JSONEncoder().encode(project)
-                  //let dict = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
             else { return }
             self.data = project
             reply?(["project": data])
                     
         case .newProject:
-            let project = ProjectManager.shared.newProject()
-            guard let data = try? JSONEncoder().encode(project)
-                  //let dict = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
-            else { return }
-            self.data = project
-            reply?(["project": data])
-                    
+            DispatchQueue.main.async {
+                let project = ProjectManager.shared.newProject()
+                guard let data = try? JSONEncoder().encode(project) else { return }
+                self.data = project
+                reply?(["project": data])
+            }
+            
         case .saveData:
             guard let shootData = message["data"] as? [String: Any],
                   let type = shootData["type"] as? String,
                   let result = shootData["result"] as? String
             else { return }
-            if type == "layup" {
-                if result == "score" {
-                    data.layupScores.append(Date())
-                } else if result == "miss" {
-                    data.layupMisses.append(Date())
-                }
-            } else if type == "twoPoint" {
-                if result == "score" {
-                    data.twoPointScores.append(Date())
-                } else if result == "miss" {
-                    data.twoPointMisses.append(Date())
-                }
-            } else if type == "threePoint" {
-                if result == "score" {
-                    data.threePointScores.append(Date())
-                } else if result == "miss" {
-                    data.threePointMisses.append(Date())
-                }
-            } else {
-                return
-            }
             
-            ProjectManager.shared.update(project: data)
+            DispatchQueue.main.async {
+                if type == "layup" {
+                    if result == "score" {
+                        self.data.layupScores.append(Date())
+                    } else if result == "miss" {
+                        self.data.layupMisses.append(Date())
+                    }
+                } else if type == "twoPoint" {
+                    if result == "score" {
+                        self.data.twoPointScores.append(Date())
+                    } else if result == "miss" {
+                        self.data.twoPointMisses.append(Date())
+                    }
+                } else if type == "threePoint" {
+                    if result == "score" {
+                        self.data.threePointScores.append(Date())
+                    } else if result == "miss" {
+                        self.data.threePointMisses.append(Date())
+                    }
+                } else {
+                    return
+                }
+                ProjectManager.shared.update(project: self.data)
+            }
         }
     }
 

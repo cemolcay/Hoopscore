@@ -8,80 +8,141 @@
 import SwiftUI
 
 struct SessionView: View {
-    var data: HPData
+    @State var layupScore: Int
+    @State var layupMiss: Int
+    @State var twoPointScore: Int
+    @State var twoPointMiss: Int
+    @State var threePointScore: Int
+    @State var threePointMiss: Int
+    var title: String
     
     init(data: HPData) {
-        self.data = data
+        title = data.description
+        layupScore = data.layupScores.count
+        layupMiss = data.layupMisses.count
+        twoPointScore = data.twoPointScores.count
+        twoPointMiss = data.twoPointMisses.count
+        threePointScore = data.threePointScores.count
+        threePointMiss = data.threePointMisses.count
     }
     
     var body: some View {
-        VStack {
-            Text(data.description)
+        let textWidth: CGFloat = 48
+        VStack(alignment: .leading) {
             HStack {
-                Text("Layup")
-                Text(data.layupMisses.count.description)
-                Text(data.layupScores.count.description)
+                Text("Layup").frame(width: textWidth)
+                Button(action: {
+                    self.layupScore += 1
+                    SessionManager.shared.saveData(type: "layup", result: "score")
+                }, label: {
+                    VStack{
+                        Text("Score")
+                        Text($layupScore.wrappedValue.description)
+                    }
+                }).foregroundColor(.green)
+                Button(action: {
+                    self.layupMiss += 1
+                    SessionManager.shared.saveData(type: "layup", result: "miss")
+                }, label: {
+                    VStack{
+                        Text("Miss")
+                        Text($layupMiss.wrappedValue.description)
+                    }
+                }).foregroundColor(.red)
             }
             HStack {
-                Text("2P")
-                Text(data.twoPointMisses.count.description)
-                Text(data.twoPointScores.count.description)
+                Text("2P").frame(width: textWidth)
+                Button(action: {
+                    self.twoPointScore += 1
+                    SessionManager.shared.saveData(type: "twoPoint", result: "score")
+                }, label: {
+                    VStack{
+                        Text("Score")
+                        Text($twoPointScore.wrappedValue.description)
+                    }
+                }).foregroundColor(.green)
+                Button(action: {
+                    self.twoPointMiss += 1
+                    SessionManager.shared.saveData(type: "twoPoint", result: "miss")
+                }, label: {
+                    VStack{
+                        Text("Miss")
+                        Text($twoPointMiss.wrappedValue.description)
+                    }
+                }).foregroundColor(.red)
             }
             HStack {
-                Text("3P")
-                Text(data.threePointMisses.count.description)
-                Text(data.threePointScores.count.description)
+                Text("3P").frame(width: textWidth)
+                Button(action: {
+                    threePointScore += 1
+                    SessionManager.shared.saveData(type: "threePoint", result: "score")
+                }, label: {
+                    VStack{
+                        Text("Score")
+                        Text($threePointScore.wrappedValue.description)
+                    }
+                }).foregroundColor(.green)
+                Button(action: {
+                    threePointMiss += 1
+                    SessionManager.shared.saveData(type: "threePoint", result: "miss")
+                }, label: {
+                    VStack{
+                        Text("Miss")
+                        Text($threePointMiss.wrappedValue.description)
+                    }
+                }).foregroundColor(.red)
             }
         }
+        .navigationTitle({
+            Text(title)
+        })
     }
 }
 
 struct SessionRequestView: View {
     @State var isLoading: Bool = true
-    @State var projectId: UUID?
     @State var data: HPData?
+    var projectId: String?
     
-    init(projectId: UUID?) {
+    init(projectId: String?) {
         self.projectId = projectId
     }
     
     var body: some View {
-        VStack {
-            if let data = data {
+        ZStack {
+            if let data = $data.wrappedValue {
                 SessionView(data: data)
             }
-        }.frame(
+        }
+        .frame(
             maxWidth: .infinity,
             maxHeight: .infinity
-        ).onAppear(perform: {
-            reload()
-        }).overlay(content: {
+        )
+        .overlay(content: {
             if $isLoading.wrappedValue {
                 VStack() {
                     ProgressView()
-                    Button(action: {
-                        reload()
-                    }, label: {
-                        Text("Reload")
-                    })
+                    Text("Loading")
                 }.background(content: { Color(.black) })
             }
         })
+        .onAppear(perform: {
+            requestProject()
+        })
     }
     
-    func reload() {
+    func requestProject() {
         if let projectId = projectId {
             SessionManager.shared.requestProject(
                 projectId: projectId,
                 compilation: { data in
-                    self.data = data
                     self.isLoading = false
+                    self.data = data
                 })
         } else {
             SessionManager.shared.newProject(compilation: { data in
-                self.data = data
-                self.projectId = data.id
                 self.isLoading = false
+                self.data = data
             })
         }
     }
@@ -94,6 +155,8 @@ struct SessionView_Previews: PreviewProvider {
             layupMisses: [Date(), Date(), Date()],
             twoPointScores: [Date()],
             twoPointMisses: [Date(), Date()])
-        SessionView(data: data)
+        NavigationView {
+            SessionView(data: data)
+        }
     }
 }

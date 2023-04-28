@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Disk
 
 class ProjectManager: ObservableObject {
     static let shared = ProjectManager()
