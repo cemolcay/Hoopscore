@@ -35,6 +35,13 @@ struct SessionView: View {
 
 struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionView(data: .init())
+        let data = HPData(
+            layupScores: [Date(), Date()],
+            layupMisses: [Date(), Date(), Date()],
+            twoPointScores: [Date()],
+            twoPointMisses: [Date(), Date()])
+        NavigationView {
+            SessionView(data: data)
+        }
     }
 }

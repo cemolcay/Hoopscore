@@ -31,23 +31,23 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
         switch msg {
         case .requestProjects:
             let projects = ProjectManager.shared.projects
-            guard let data = try? JSONEncoder().encode(projects.map({ $0.watchFriendlyCopy() })) else { return }
-            reply?(["projects": data])
+            guard let data = try? JSONEncoder().encode(projects.map({ HPWatchData(data: $0) })) else { return }
+            reply?(["data": data])
             
         case .selectProject:
             guard let projectID = message["projectID"] as? String,
                   let project = ProjectManager.shared.projects.first(where: { $0.id == projectID }),
-                  let data = try? JSONEncoder().encode(project)
+                  let data = try? JSONEncoder().encode(HPWatchData(data: project))
             else { return }
             self.data = project
-            reply?(["project": data])
+            reply?(["data": data])
                     
         case .newProject:
             DispatchQueue.main.async {
                 let project = ProjectManager.shared.newProject()
                 guard let data = try? JSONEncoder().encode(project) else { return }
                 self.data = project
-                reply?(["project": data])
+                reply?(["data": data])
             }
             
         case .saveData:

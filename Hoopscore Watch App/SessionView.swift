@@ -8,100 +8,70 @@
 import SwiftUI
 
 struct SessionView: View {
-    @State var layupScore: Int
-    @State var layupMiss: Int
-    @State var twoPointScore: Int
-    @State var twoPointMiss: Int
-    @State var threePointScore: Int
-    @State var threePointMiss: Int
-    var title: String
-    
-    init(data: HPData) {
-        title = data.description
-        layupScore = data.layupScores.count
-        layupMiss = data.layupMisses.count
-        twoPointScore = data.twoPointScores.count
-        twoPointMiss = data.twoPointMisses.count
-        threePointScore = data.threePointScores.count
-        threePointMiss = data.threePointMisses.count
-    }
+    @ObservedObject var data: HPWatchData
     
     var body: some View {
         let textWidth: CGFloat = 48
         VStack(alignment: .leading) {
+            HStack(alignment: .center, spacing: 8) {
+                Text("🏀").frame(width: textWidth)
+                Text("Score").foregroundColor(.green).padding()
+                Text("Miss").foregroundColor(.red).padding()
+            }
             HStack {
                 Text("Layup").frame(width: textWidth)
                 Button(action: {
-                    self.layupScore += 1
+                    data.layupScores += 1
                     SessionManager.shared.saveData(type: "layup", result: "score")
                 }, label: {
-                    VStack{
-                        Text("Score")
-                        Text($layupScore.wrappedValue.description)
-                    }
+                    Text($data.layupScores.wrappedValue.description)
                 }).foregroundColor(.green)
                 Button(action: {
-                    self.layupMiss += 1
+                    data.layupMisses += 1
                     SessionManager.shared.saveData(type: "layup", result: "miss")
                 }, label: {
-                    VStack{
-                        Text("Miss")
-                        Text($layupMiss.wrappedValue.description)
-                    }
+                    Text($data.layupMisses.wrappedValue.description)
                 }).foregroundColor(.red)
             }
             HStack {
                 Text("2P").frame(width: textWidth)
                 Button(action: {
-                    self.twoPointScore += 1
+                    data.twoPointScores += 1
                     SessionManager.shared.saveData(type: "twoPoint", result: "score")
                 }, label: {
-                    VStack{
-                        Text("Score")
-                        Text($twoPointScore.wrappedValue.description)
-                    }
+                    Text($data.twoPointScores.wrappedValue.description)
                 }).foregroundColor(.green)
                 Button(action: {
-                    self.twoPointMiss += 1
+                    data.twoPointMisses += 1
                     SessionManager.shared.saveData(type: "twoPoint", result: "miss")
                 }, label: {
-                    VStack{
-                        Text("Miss")
-                        Text($twoPointMiss.wrappedValue.description)
-                    }
+                    Text($data.twoPointMisses.wrappedValue.description)
                 }).foregroundColor(.red)
             }
             HStack {
                 Text("3P").frame(width: textWidth)
                 Button(action: {
-                    threePointScore += 1
+                    data.threePointScores += 1
                     SessionManager.shared.saveData(type: "threePoint", result: "score")
                 }, label: {
-                    VStack{
-                        Text("Score")
-                        Text($threePointScore.wrappedValue.description)
-                    }
+                    Text($data.threePointScores.wrappedValue.description)
                 }).foregroundColor(.green)
                 Button(action: {
-                    threePointMiss += 1
+                    data.threePointMisses += 1
                     SessionManager.shared.saveData(type: "threePoint", result: "miss")
                 }, label: {
-                    VStack{
-                        Text("Miss")
-                        Text($threePointMiss.wrappedValue.description)
-                    }
+                    Text($data.threePointMisses.wrappedValue.description)
                 }).foregroundColor(.red)
             }
         }
-        .navigationTitle({
-            Text(title)
-        })
+        .navigationTitle(data.title)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct SessionRequestView: View {
     @State var isLoading: Bool = true
-    @State var data: HPData?
+    @State var data: HPWatchData?
     var projectId: String?
     
     init(projectId: String?) {
@@ -114,10 +84,7 @@ struct SessionRequestView: View {
                 SessionView(data: data)
             }
         }
-        .frame(
-            maxWidth: .infinity,
-            maxHeight: .infinity
-        )
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .overlay(content: {
             if $isLoading.wrappedValue {
                 VStack() {
@@ -156,7 +123,7 @@ struct SessionView_Previews: PreviewProvider {
             twoPointScores: [Date()],
             twoPointMisses: [Date(), Date()])
         NavigationView {
-            SessionView(data: data)
+            SessionView(data: HPWatchData(data: data))
         }
     }
 }

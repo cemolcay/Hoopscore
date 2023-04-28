@@ -21,34 +21,34 @@ class SessionManager: NSObject, WCSessionDelegate {
         }
     }
     
-    func requestProjects(compilation: (([HPData]) -> Void)?) {
+    func requestProjects(compilation: (([HPWatchData]) -> Void)?) {
         let message = ["message": WatchMessage.requestProjects.rawValue]
         session.sendMessage(message, replyHandler: { reply in
-            guard let data = reply["projects"] as? Data,
-                  let projects = try? JSONDecoder().decode([HPData].self, from: data)
+            guard let data = reply["data"] as? Data,
+                  let projects = try? JSONDecoder().decode([HPWatchData].self, from: data)
             else { return }
             compilation?(projects)
         })
     }
     
-    func requestProject(projectId: String, compilation: ((HPData) -> Void)?) {
+    func requestProject(projectId: String, compilation: ((HPWatchData) -> Void)?) {
         let message: [String: Any] = [
             "message": WatchMessage.selectProject.rawValue,
             "projectID": projectId
         ]
         session.sendMessage(message, replyHandler: { reply in
-            guard let data = reply["project"] as? Data,
-                  let project = try? JSONDecoder().decode(HPData.self, from: data)
+            guard let data = reply["data"] as? Data,
+                  let project = try? JSONDecoder().decode(HPWatchData.self, from: data)
             else { return }
             compilation?(project)
         })
     }
     
-    func newProject(compilation: ((HPData) -> Void)?) {
+    func newProject(compilation: ((HPWatchData) -> Void)?) {
         let message: [String: Any] = ["message": WatchMessage.newProject.rawValue]
         session.sendMessage(message, replyHandler: { reply in
-            guard let data = reply["project"] as? Data,
-                  let project = try? JSONDecoder().decode(HPData.self, from: data)
+            guard let data = reply["data"] as? Data,
+                  let project = try? JSONDecoder().decode(HPWatchData.self, from: data)
             else { return }
             compilation?(project)
         })

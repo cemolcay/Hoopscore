@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var projects: [HPData] = []
+    @State var projects: [HPWatchData] = []
     @State var isLoading: Bool = true
     
     var body: some View {
@@ -21,7 +21,7 @@ struct ContentView: View {
                 // Sessions
                 ForEach($projects, id: \.id) { project in
                     NavigationLink(
-                        project.wrappedValue.description,
+                        project.wrappedValue.title,
                         destination: { SessionRequestView(projectId: project.id) })
                 }
             }.onAppear(perform: {
