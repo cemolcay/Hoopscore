@@ -12,40 +12,45 @@ struct SessionView: View {
     @ObservedObject var data: HPData
     
     var body: some View {
-        if #available(iOS 16.0, *) {
-            VStack {
-                Group {
-                    Text("Shoot Type")
-                    Chart(data.scoreTypeSeries()) { series in
-                        ForEach(series.score) { score in
-                            LineMark(x: .value("Date", score.date, unit: .second),
-                                     y: .value("Score", score.score))
-                            .foregroundStyle(by: .value("Type", series.name))
-                            .interpolationMethod(.linear)
-                            PointMark(x: .value("Date", score.date, unit: .second),
-                                      y: .value("Score", score.score))
-                            .foregroundStyle(by: .value("Type", series.name))
-                            .symbol(by: .value("Type", series.name))
-                        }
-                    }
+        VStack {
+            Group {
+                HStack {
+                    Text("Shoots by type")
+                    Spacer()
                 }
-                Group {
-                    Text("Shoot Result")
-                    Chart(data.scoreResultSeries()) { series in
-                        ForEach(series.result) { result in
-                            BarMark(
-                                x: .value("Type", series.name),
-                                y: .value("Count", result.count)
-                            )
-                            .position(by: .value("Result", result.name))
-                            .foregroundStyle(by: .value("Result", result.name))
-                        }
+                Chart(data.scoreTypeSeries()) { series in
+                    ForEach(series.score) { score in
+                        LineMark(x: .value("Date", score.date, unit: .second),
+                                 y: .value("Score", score.score))
+                        .foregroundStyle(by: .value("Type", series.name))
+                        .interpolationMethod(.linear)
+                        PointMark(x: .value("Date", score.date, unit: .second),
+                                  y: .value("Score", score.score))
+                        .foregroundStyle(by: .value("Type", series.name))
+                        .symbol(by: .value("Type", series.name))
                     }
                 }
             }
-            .padding()
-            .navigationTitle(data.description)
+            Divider()
+            Group {
+                HStack {
+                    Text("Shoots by result")
+                    Spacer()
+                }
+                Chart(data.scoreResultSeries()) { series in
+                    ForEach(series.result) { result in
+                        BarMark(
+                            x: .value("Type", series.name),
+                            y: .value("Count", result.count)
+                        )
+                        .position(by: .value("Result", result.name))
+                        .foregroundStyle(by: .value("Result", result.name))
+                    }
+                }
+            }
         }
+        .padding()
+        .navigationTitle(data.description)
     }
 }
 
