@@ -11,15 +11,19 @@ struct SessionView: View {
     @ObservedObject var data: HPWatchData
     
     var body: some View {
-        let textWidth: CGFloat = 48
+        let textWidth: CGFloat = 30
         VStack(alignment: .leading) {
             HStack(alignment: .center, spacing: 8) {
                 Text("🏀").frame(width: textWidth)
-                Text("Score").foregroundColor(.green).padding()
-                Text("Miss").foregroundColor(.red).padding()
+                VStack(alignment: .center) {
+                    Text("Score").foregroundColor(.green)
+                }.frame(minWidth: 0, maxWidth: .infinity)
+                VStack(alignment: .center) {
+                    Text("Miss").foregroundColor(.red)
+                }.frame(minWidth: 0, maxWidth: .infinity)
             }
             HStack {
-                Text("Layup").frame(width: textWidth)
+                Text("UP").frame(width: textWidth)
                 Button(action: {
                     data.layupScores += 1
                     SessionManager.shared.saveData(type: .layup, result: .score)

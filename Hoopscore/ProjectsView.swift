@@ -13,17 +13,23 @@ struct ProjectsView: View {
     
     var body: some View {
         ZStack {
+            // Empty View
+            if $projects.projects.wrappedValue.isEmpty {
+                Text("Please start a new session on your\nApple Watch app")
+                    .multilineTextAlignment(.center)
+            }
+            // Session list
             List {
                 // New session
-                Button(action: {
-                    let project = ProjectManager.shared.newProject()
-                    selectedProjectId = project.id
-                }, label: {
-                    HStack {
-                        Image(systemName: "plus")
-                        Text("New Session")
-                    }
-                })
+//                Button(action: {
+//                    let project = ProjectManager.shared.newProject()
+//                    selectedProjectId = project.id
+//                }, label: {
+//                    HStack {
+//                        Image(systemName: "plus")
+//                        Text("New Session")
+//                    }
+//                })
                 // Sessions
                 ForEach($projects.projects, id: \.id) { project in
                     NavigationLink(
@@ -51,14 +57,14 @@ struct ProjectsView: View {
             }
             .listStyle(.plain)
             .navigationTitle("Sessions")
-            .toolbar {
-                Button(action: {
-                    let project = ProjectManager.shared.newProject()
-                    selectedProjectId = project.id
-                }, label: {
-                    Image(systemName: "plus")
-                })
-            }
+//            .toolbar {
+//                Button(action: {
+//                    let project = ProjectManager.shared.newProject()
+//                    selectedProjectId = project.id
+//                }, label: {
+//                    Image(systemName: "plus")
+//                })
+//            }
         }
     }
 }

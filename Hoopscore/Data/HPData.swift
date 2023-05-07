@@ -66,7 +66,7 @@ class HPWatchData: Identifiable, Codable, ObservableObject {
      }
 }
 
-enum HPShootType: Int, Codable, CustomStringConvertible {
+enum HPShootType: Int, Codable, CaseIterable, CustomStringConvertible {
     case layup
     case twoPoint
     case threePoint
@@ -80,7 +80,7 @@ enum HPShootType: Int, Codable, CustomStringConvertible {
     }
 }
 
-enum HPShootResult: Int, Codable, CustomStringConvertible {
+enum HPShootResult: Int, Codable, CaseIterable, CustomStringConvertible {
     case score
     case miss
     
@@ -127,6 +127,22 @@ class HPData: Identifiable, Codable, CustomStringConvertible, ObservableObject {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy, HH:mm"
         return dateFormatter.string(from: date)
+    }
+    
+    static func randomData(count: Int = 50, intervalMin: TimeInterval = 20, intervalMax: TimeInterval = 90) -> HPData {
+        var date = Date()
+        var shots: [HPShoot] = []
+        for _ in 0..<count {
+            shots.append(HPShoot(
+                date: date,
+                type: HPShootType.allCases.randomElement()!,
+                result: HPShootResult.allCases.randomElement()!))
+            let interval = TimeInterval.random(in: intervalMin...intervalMax)
+            date += interval
+        }
+        let data = HPData()
+        data.shoots = shots
+        return data
     }
     
     // MARK: Codable

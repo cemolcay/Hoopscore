@@ -17,6 +17,7 @@
 		C1076D6429FBDDEC00473A02 /* Disk+[UIImage].swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D5A29FBDDEC00473A02 /* Disk+[UIImage].swift */; };
 		C1076D6529FBDDEC00473A02 /* Disk+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D5B29FBDDEC00473A02 /* Disk+UIImage.swift */; };
 		C1076D6629FBDDEC00473A02 /* Disk+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D5C29FBDDEC00473A02 /* Disk+Codable.swift */; };
+		C1076D712A07F75D00473A02 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1076D702A07F75D00473A02 /* ChartData.swift */; };
 		C14DD0A929F92DD30044BD66 /* HoopscoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0A829F92DD30044BD66 /* HoopscoreApp.swift */; };
 		C14DD0AB29F92DD30044BD66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14DD0AA29F92DD30044BD66 /* ContentView.swift */; };
 		C14DD0AD29F92DD40044BD66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C14DD0AC29F92DD40044BD66 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		C1076D5A29FBDDEC00473A02 /* Disk+[UIImage].swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+[UIImage].swift"; sourceTree = "<group>"; };
 		C1076D5B29FBDDEC00473A02 /* Disk+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+UIImage.swift"; sourceTree = "<group>"; };
 		C1076D5C29FBDDEC00473A02 /* Disk+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+Codable.swift"; sourceTree = "<group>"; };
+		C1076D702A07F75D00473A02 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		C14DD0A529F92DD30044BD66 /* Hoopscore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoopscore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C14DD0A829F92DD30044BD66 /* HoopscoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoopscoreApp.swift; sourceTree = "<group>"; };
 		C14DD0AA29F92DD30044BD66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				C14DD0CF29F9357F0044BD66 /* ProjectManager.swift */,
 				C14DD0D529F939CB0044BD66 /* WatchSessionManager.swift */,
 				C14DD0D729F93A540044BD66 /* WatchMessage.swift */,
+				C1076D702A07F75D00473A02 /* ChartData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				C1076D5F29FBDDEC00473A02 /* Disk+[Data].swift in Sources */,
 				C14DD0D229F936CA0044BD66 /* ProjectsView.swift in Sources */,
 				C1076D6329FBDDEC00473A02 /* Disk+VolumeInformation.swift in Sources */,
+				C1076D712A07F75D00473A02 /* ChartData.swift in Sources */,
 				C14DD0AB29F92DD30044BD66 /* ContentView.swift in Sources */,
 				C14DD0D029F9357F0044BD66 /* ProjectManager.swift in Sources */,
 				C14DD0A929F92DD30044BD66 /* HoopscoreApp.swift in Sources */,

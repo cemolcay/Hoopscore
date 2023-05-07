@@ -45,7 +45,7 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
         case .newProject:
             DispatchQueue.main.async {
                 let project = ProjectManager.shared.newProject()
-                guard let data = try? JSONEncoder().encode(project) else { return }
+                guard let data = try? JSONEncoder().encode(HPWatchData(data: project)) else { return }
                 self.data = project
                 reply?(["data": data])
             }

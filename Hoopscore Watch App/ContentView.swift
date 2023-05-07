@@ -39,7 +39,10 @@ struct ContentView: View {
                 }
             })
         }.navigationTitle({
-            Text("Hoopscore")
+            HStack {
+                Text("🏀 Hoopscore")
+                Spacer()
+            }
         })
     }
     

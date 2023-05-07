@@ -6,56 +6,52 @@
 //
 
 import SwiftUI
+import Charts
 
 struct SessionView: View {
     @ObservedObject var data: HPData
     
     var body: some View {
-        let layupScores = $data.shoots.wrappedValue.filter({ $0.type == .layup && $0.result == .score }).count
-        let layupMisses = $data.shoots.wrappedValue.filter({ $0.type == .layup && $0.result == .miss }).count
-        let twoPointScores = $data.shoots.wrappedValue.filter({ $0.type == .twoPoint && $0.result == .score }).count
-        let twoPointMisses = $data.shoots.wrappedValue.filter({ $0.type == .twoPoint && $0.result == .miss }).count
-        let threePointScores = $data.shoots.wrappedValue.filter({ $0.type == .threePoint && $0.result == .score }).count
-        let threePointMisses = $data.shoots.wrappedValue.filter({ $0.type == .threePoint && $0.result == .miss }).count
-
-        VStack {
-            Text(data.description)
-            HStack {
-                Text("Layup")
-                Text(layupScores.description).foregroundColor(.green)
-                Text(layupMisses.description).foregroundColor(.red)
+        if #available(iOS 16.0, *) {
+            VStack {
+                Group {
+                    Text("Shoot Type")
+                    Chart(data.scoreTypeSeries()) { series in
+                        ForEach(series.score) { score in
+                            LineMark(x: .value("Date", score.date, unit: .second),
+                                     y: .value("Score", score.score))
+                            .foregroundStyle(by: .value("Type", series.name))
+                            .interpolationMethod(.linear)
+                            PointMark(x: .value("Date", score.date, unit: .second),
+                                      y: .value("Score", score.score))
+                            .foregroundStyle(by: .value("Type", series.name))
+                            .symbol(by: .value("Type", series.name))
+                        }
+                    }
+                }
+                Group {
+                    Text("Shoot Result")
+                    Chart(data.scoreResultSeries()) { series in
+                        ForEach(series.result) { result in
+                            BarMark(
+                                x: .value("Type", series.name),
+                                y: .value("Count", result.count)
+                            )
+                            .position(by: .value("Result", result.name))
+                            .foregroundStyle(by: .value("Result", result.name))
+                        }
+                    }
+                }
             }
-            HStack {
-                Text("2P")
-                Text(twoPointScores.description).foregroundColor(.green)
-                Text(twoPointMisses.description).foregroundColor(.red)
-            }
-            HStack {
-                Text("3P")
-                Text(threePointScores.description).foregroundColor(.green)
-                Text(threePointMisses.description).foregroundColor(.red)
-            }
+            .padding()
+            .navigationTitle(data.description)
         }
-        .padding()
     }
 }
 
 struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
-        let data = HPData(
-            shoots: [
-                .init(type: .layup, result: .score),
-                .init(type: .layup, result: .score),
-                .init(type: .layup, result: .miss),
-                .init(type: .layup, result: .miss),
-                .init(type: .layup, result: .miss),
-                .init(type: .twoPoint, result: .score),
-                .init(type: .twoPoint, result: .miss),
-                .init(type: .twoPoint, result: .miss),
-                .init(type: .threePoint, result: .score),
-                .init(type: .threePoint, result: .score),
-                .init(type: .threePoint, result: .miss),
-            ])
+        let data = HPData.randomData()
         NavigationView {
             SessionView(data: data)
         }
