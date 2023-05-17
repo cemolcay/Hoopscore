@@ -14,7 +14,7 @@ Hoopscore is a free and open source app for keeping score of your basketball pra
 
 ![alt tag](stuff/iphone.jpg)
 
-🍎 Download (Not released yet!)
+🍎 Download for free!
 ----
 
 [App Store](https://apps.apple.com/us/app/hoopscore/id6448628435)
